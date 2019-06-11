@@ -3,10 +3,17 @@ package com.ts.springbootsecurity.web;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 /**
  * @author jitwxs
@@ -25,7 +32,18 @@ public class LoginController {
     }
 
     @RequestMapping("/login")
-    public String showLogin() {
+    public String showLogin(HttpServletRequest request ,HttpServletResponse response) throws UnsupportedEncodingException {
+
+        //========================登录异常处理加的代码  一行代码加在websecurityconfig里面异常路径
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        AuthenticationException exception = (AuthenticationException) request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+
+        if (exception != null) {
+            System.out.println(exception.toString());
+            request.setAttribute("exception", exception.toString());
+        }
+        //===========================
         return "login.html";
     }
 
