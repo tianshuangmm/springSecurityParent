@@ -1,0 +1,5 @@
+
+
+SpringSecurity remember-me 自动登录
+demo使用 基于持久化 token 的方法
+比 基于简单加密 token 的方法 安全

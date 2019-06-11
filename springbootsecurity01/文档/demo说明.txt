@@ -1,0 +1,2 @@
+这是一个springboot+mybatis+springsecurity的demo
+主要是springsecurity的认证与授权
