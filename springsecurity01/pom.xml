@@ -12,7 +12,7 @@
     <!-- spring版本号 -->
     <spring.version>4.2.6.RELEASE</spring.version>
     <!--springSecurity版本-->
-    <springsecurity.version>4.2.6.RELEASE</springsecurity.version>
+    <springsecurity.version>5.2.10.RELEASE</springsecurity.version>
     <!-- mybatis版本号 -->
     <mybatis.version>3.4.0</mybatis.version>
 
